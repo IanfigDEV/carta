@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bilhetinho pra tu 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff2f8;
+      font-family: 'Courier New', monospace;
+      color: #5a2b4d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .note {
+      width: 90%;
+      max-width: 600px;
+      background: #fff;
+      padding: 40px 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      font-size: 1.2em;
+      line-height: 1.6;
+      border: 1px solid #ffd6ea;
+      white-space: pre-wrap;
+    }
+    .typing {
+      border-right: .15em solid #5a2b4d;
+      overflow: hidden;
+    }
+    .signature {
+      margin-top: 30px;
+      opacity: 0;
+      transition: opacity 2s ease;
+      font-style: italic;
+      text-align: right;
+      font-size: 1em;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="note">
+    <div id="text" class="typing"></div>
+    <div id="signature" class="signature">Ian.(não é o Clerke  mas sou eu kkkkkkkk)</div>
+  </div>
+
+  <script>
+    const text = `Não é muito, mas é sincero...
+
+Espero que seu dia hoje seja incrível!
+
+Num tem presente, num tem flor, num tem nada disso.
+
+Mas tem código puro que eu mesmo fiz kkkkkkk
+
+Só pra você lembrar que mesmo de longe, tem alguém torcendo pelo seu sorriso.
+
+E estou enviando esse bilhete pra tu, só pra te falar que acho tu uma pessoa íncrivel.
+
+Se precisar de algo, só me chamar!`;
+
+    const textEl = document.getElementById("text");
+    const signatureEl = document.getElementById("signature");
+    let idx = 0;
+
+    function typeWriter() {
+      if (idx < text.length) {
+        textEl.textContent += text.charAt(idx);
+        idx++;
+        setTimeout(typeWriter, 40);
+      } else {
+        signatureEl.style.opacity = 1;
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
